@@ -8,15 +8,20 @@ document.getElementById("mv-select").addEventListener("change", function() {
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 const submenuButtons = document.querySelectorAll(".submenu-btn");
+const submenus = document.querySelectorAll(".submenu");
+
+// 0️⃣ 페이지 로드 시 모든 서브메뉴 숨기기
+submenus.forEach(sm => sm.classList.remove("show"));
+submenuButtons.forEach(btn => btn.setAttribute("aria-expanded", false));
 
 // 1️⃣ 메뉴 버튼 클릭 → 사이드바 열기/닫기
 menuBtn.addEventListener("click", (e) => {
     sidebar.classList.toggle("active");
     e.stopPropagation();
 
-    // 사이드바를 열 때 모든 서브메뉴 닫기
+    // 사이드바 열 때 모든 서브메뉴 닫기
     if (sidebar.classList.contains("active")) {
-        document.querySelectorAll(".submenu").forEach(sm => sm.classList.remove("show"));
+        submenus.forEach(sm => sm.classList.remove("show"));
         submenuButtons.forEach(btn => btn.setAttribute("aria-expanded", false));
     }
 });
@@ -35,7 +40,7 @@ submenuButtons.forEach(btn => {
         const submenu = btn.nextElementSibling;
 
         // 다른 모든 서브메뉴 닫기
-        document.querySelectorAll(".submenu").forEach(sm => {
+        submenus.forEach(sm => {
             if (sm !== submenu) {
                 sm.classList.remove("show");
                 sm.previousElementSibling.setAttribute("aria-expanded", false);
