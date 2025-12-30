@@ -16,7 +16,7 @@ menuBtn.addEventListener("click", (e) => {
 
 // 2️⃣ 사이드바 외부 클릭 → 닫기
 document.addEventListener("click", (e) => {
-    if (!sidebar.contains(e.target)) {
+    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
         sidebar.classList.remove("active");
     }
 });
