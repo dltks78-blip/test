@@ -1,49 +1,152 @@
+/* 기본 스타일 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fefefe;
-    color: #333;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #222;
+    color: #fff;
 }
 
 header h1 {
-    color: #d6336c;
-    text-align: center;
+    margin-left: 10px;
+    font-size: 1.5rem;
 }
 
-h2 {
-    color: #1a73e8;
-    margin-top: 30px;
+/* 사이드바 */
+.sidebar {
+    width: 220px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding-top: 60px;
 }
 
-ul {
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li a,
+.sidebar li button {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar li button:focus,
+.sidebar li a:focus {
+    outline: none;
+    background-color: #444;
+}
+
+/* 메인 컨텐츠 */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* 카드 디자인 */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Music Video */
+.card.video select {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.card.video iframe {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Chart Ranking */
+.chart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.chart-item:last-child {
+    border-bottom: none;
+}
+
+.chart-item .platform {
+    font-weight: bold;
+}
+
+.chart-info {
+    display: flex;
+    gap: 10px;
+}
+
+.change.up {
+    color: red;
+}
+
+.change.down {
+    color: blue;
+}
+
+.change.same {
+    color: gray;
+}
+
+/* To Do List */
+.card.todolist ul {
     list-style: none;
     padding-left: 0;
 }
 
-ul li {
-    margin-bottom: 10px;
+.card.todolist li {
+    margin-bottom: 5px;
 }
 
-a {
-    color: #1a73e8;
+/* Quick buttons */
+.card.quick a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-img {
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
+.card.quick a.btn:hover {
+    background-color: #555;
 }
