@@ -11,7 +11,6 @@ const sidebar = document.querySelector(".sidebar");
 // 1️⃣ 메뉴 버튼 클릭 → 토글
 menuBtn.addEventListener("click", (e) => {
     sidebar.classList.toggle("active");
-    e.stopPropagation(); // 클릭 이벤트가 document까지 올라가는 걸 막음
 });
 
 // 2️⃣ 사이드바 외부 클릭 → 닫기
