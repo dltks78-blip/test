@@ -17,7 +17,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
         스트리밍
-    <i class="fa-solid fa-arrow-down"></i>
+    <i class="fa-solid fa-angle-down"></i>
   </button>
   <ul class="submenu">
       <li><a href="streaming-guide.html">가이드</a></li>
@@ -29,7 +29,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             다운로드
-            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="download-guide.html">가이드</a></li>
@@ -39,7 +39,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             투표
-            <i class="fa-solid fa-arrow-down"></i>
+           <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="vote-guide.html">가이드</a></li>
@@ -51,7 +51,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             차트
-            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="chart.html">음원차트</a></li>
@@ -61,7 +61,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             기부∙모금
-            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="id.html">아이디 기부</a></li>
@@ -72,7 +72,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             모집
-            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="staff.html">총공팀 총대/스태프</a></li>       
@@ -83,7 +83,7 @@
     <li class="has-submenu">
         <button type="button" class="submenu-btn" aria-expanded="false">
             안내
-            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-angle-down"></i>
         </button>
     <ul class="submenu">
         <li><a href="album-group-order.html">앨범 공동 구매</a></li>
@@ -94,25 +94,52 @@
   </ul>
 </nav>
 
-<main>
     <main class="main-content">
 
-        <section class="card video"
+        <section class="card video">
             <h2>Music Video</h2>
+
+            <select id="mv-select">
+                <option value="As3FEXaA3ms">MV 1</option>
+                <option value="3kfhoikVzUc">MV 2</option>
+                <option value="olPe8g7A32E">MV 3</option>
+            </select>
+
             <iframe
-                src="https://youtu.be/3kfhoikVzUc?si=SLJs5pAojpsul89c"
+                id="mv-frame"
+                src="https://www.youtube.com/embed/As3FEXaA3ms?si=ynqQv-5TJNEH8bBl"
                 allowfullscreen>
             </iframe>
         </section>
 
         <section class="card chart">
             <h2>Chart Ranking</h2>
-            <ol>
-                <li>멜론</li>
-                <li>지니</li>
-                <li>벅스</li>
-                <li>플로</li>
-            </ol>
+
+            <ul class="chart-list">
+                <li class="chart-item">
+                    <span class="platform">멜론</span>
+                    <span class="rank">23위</span>
+                    <span class="change up">▲4</span>
+                </li>
+
+                <li class="chart-item">
+                    <span class="platform">지니</span>
+                    <span class="rank">18위</span>
+                    <span class="change down">▼1</span>
+                </li>
+
+                <li class="chart-item">
+                    <span class="platform">벅스</span>
+                    <span class="rank">12위</span>
+                    <span class="change same">—</span>
+                </li>
+
+                <li class="chart-item">
+                    <span class="platform">플로</span>
+                    <span class="rank">15위</span>
+                    <span class="change up">▲2</span>
+                </li>
+            </ul>
         </section>
 
         <section class="card todolist">
