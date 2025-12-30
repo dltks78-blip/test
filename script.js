@@ -5,19 +5,23 @@ document.getElementById("mv-select").addEventListener("change", function() {
     iframe.src = "https://www.youtube.com/embed/" + videoId;
 });
 
-// 사이드바 서브메뉴 토글
-const submenuItems = document.querySelectorAll('.has-submenu');
+// 1. 햄버거 버튼 클릭 시 사이드바 열기/닫기
+const menuBtn = document.querySelector(".menu-btn");
+const sidebar = document.querySelector(".sidebar");
 
-submenuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('active');
-    const submenu = item.querySelector('.submenu');
-
-    if (item.classList.contains('active')) {
-      submenu.style.maxHeight = submenu.scrollHeight + "px";
-    } else {
-      submenu.style.maxHeight = 0;
-    }
-  });
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
 });
 
+// 2. 서브메뉴 토글
+const submenuButtons = document.querySelectorAll(".submenu-btn");
+
+submenuButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const submenu = btn.nextElementSibling;
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+
+        btn.setAttribute("aria-expanded", !expanded);
+        submenu.classList.toggle("show");
+    });
+});
