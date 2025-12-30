@@ -11,6 +11,7 @@ const sidebar = document.querySelector(".sidebar");
 // 1️⃣ 메뉴 버튼 클릭 → 토글
 menuBtn.addEventListener("click", (e) => {
     sidebar.classList.toggle("active");
+    e.stopPropagation();
 });
 
 // 2️⃣ 사이드바 외부 클릭 → 닫기
