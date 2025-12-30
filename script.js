@@ -6,14 +6,18 @@ document.getElementById("mv-select").addEventListener("change", function() {
 });
 
 // 사이드바 서브메뉴 토글
-const submenuButtons = document.querySelectorAll(".submenu-btn");
+const submenuItems = document.querySelectorAll('.has-submenu');
 
-submenuButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const submenu = btn.nextElementSibling;
-        const expanded = btn.getAttribute("aria-expanded") === "true";
+submenuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    const submenu = item.querySelector('.submenu');
 
-        btn.setAttribute("aria-expanded", !expanded);
-        submenu.style.display = expanded ? "none" : "block";
-    });
+    if (item.classList.contains('active')) {
+      submenu.style.maxHeight = submenu.scrollHeight + "px";
+    } else {
+      submenu.style.maxHeight = 0;
+    }
+  });
 });
+
