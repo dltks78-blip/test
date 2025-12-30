@@ -5,12 +5,18 @@ document.getElementById("mv-select").addEventListener("change", function() {
     iframe.src = "https://www.youtube.com/embed/" + videoId;
 });
 
-// 1. 햄버거 버튼 클릭 시 사이드바 열기/닫기
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 
+// 1️⃣ 메뉴 버튼 클릭 → 토글
+menuBtn.addEventListener("click", (e) => {
+    sidebar.classList.toggle("active");
+    e.stopPropagation(); // 클릭 이벤트가 document까지 올라가는 걸 막음
+});
+
+// 2️⃣ 사이드바 외부 클릭 → 닫기
 document.addEventListener("click", (e) => {
-    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+    if (!sidebar.contains(e.target)) {
         sidebar.classList.remove("active");
     }
 });
