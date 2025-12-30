@@ -9,8 +9,10 @@ document.getElementById("mv-select").addEventListener("change", function() {
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
+document.addEventListener("click", (e) => {
+    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.classList.remove("active");
+    }
 });
 
 // 2. 서브메뉴 토글
