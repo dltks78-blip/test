@@ -20,7 +20,7 @@ header h1 {
 }
 
 header h1 a {
-    color: #ffffff;
+    color: #222;
     text-decoration: none;
 }
 
@@ -31,7 +31,7 @@ header h1 a {
     left: -240px; /* 화면 밖으로 숨김 */
     width: 220px;
     height: 100%;
-    background-color: #303030;
+    background-color: #3b3b3b;
     color: #fff;
     overflow-y: auto;
     transition: left 0.3s ease;
@@ -85,7 +85,7 @@ header h1 a {
 .sidebar li button:focus,
 .sidebar li a:focus {
     outline: none;
-    background-color: #444;
+    background-color: #4a4a4a;
 }
 
 .sidebar li button.submenu-btn {
@@ -101,7 +101,7 @@ header h1 a {
 /* 마우스 커서 올려놓을 시 색상 변화 */
 :root {
   --menu-color-1: #5a6cff; /* 블루 */
-  --menu-color-2: #ffff52; /* 옐로우 */
+  --menu-color-2: #f0e75c; /* 옐로우 */
   --menu-color-3: #66ff4f; /* 그린 */
   --menu-color-4: #d195ff; /* 퍼플 */
 }
