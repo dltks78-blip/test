@@ -98,6 +98,68 @@ header h1 a {
     padding-left: 30px;
 }
 
+/* 마우스 커서 올려놓을 시 색상 변화 */
+:root {
+  --menu-color-1: #0000ff; /* 블루 */
+  --menu-color-2: #ffff00; /* 옐로우 */
+  --menu-color-3: #00ff00; /* 그린 */
+  --menu-color-4: #800080; /* 퍼플 */
+}
+
+/* 1~2번째 메뉴 */
+.sidebar > ul > li:nth-of-type(1),
+.sidebar > ul > li:nth-of-type(2) {
+  --active-color: var(--menu-color-1);
+}
+
+/* 3~4번째 메뉴 */
+.sidebar > ul > li:nth-of-type(3),
+.sidebar > ul > li:nth-of-type(4) {
+  --active-color: var(--menu-color-2);
+}
+
+/* 5~6번째 메뉴 */
+.sidebar > ul > li:nth-of-type(5),
+.sidebar > ul > li:nth-of-type(6) {
+  --active-color: var(--menu-color-3);
+}
+
+/* 7~8번째 메뉴 */
+.sidebar > ul > li:nth-of-type(7),
+.sidebar > ul > li:nth-of-type(8) {
+  --active-color: var(--menu-color-4);
+}
+
+/* 상위 메뉴 hover */
+.sidebar li:hover > button.submenu-btn {
+  color: var(--active-color);
+}
+
+/* 서브메뉴 hover */
+.sidebar li .submenu li a:hover {
+  color: var(--active-color);
+}
+
+/* 서브메뉴 열려 있을 때 상위 메뉴 강조 */
+.sidebar li .submenu.show {
+  border-left: 3px solid var(--active-color);
+}
+
+/* 화살표 아이콘도 같이 변경 */
+.sidebar li:hover i {
+  color: var(--active-color);
+}
+
+/* active(현재 페이지)에서도 같은 색 적용 */
+.sidebar li.active > button.submenu-btn {
+  color: var(--active-color);
+}
+
+.sidebar li .submenu li.active > a {
+  color: var(--active-color);
+  font-weight: bold;
+}
+
 /* 메인 컨텐츠 */
 .main-content {
     margin-left: 240px;
@@ -105,6 +167,13 @@ header h1 a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+}
+
+/* 메뉴 버튼 & 링크에 transition */
+.sidebar li a,
+.sidebar li button,
+.sidebar li i {
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 /* 카드 디자인 */
