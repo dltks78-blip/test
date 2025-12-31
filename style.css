@@ -130,31 +130,28 @@ header h1 a {
   --active-color: var(--menu-color-4);
 }
 
-/* 상위 메뉴 hover */
-.sidebar li:hover > button.submenu-btn {
+.sidebar li a,
+.sidebar li button,
+.sidebar li i {
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+/* 상위 메뉴 버튼에 마우스를 직접 올렸을 때만 */
+.sidebar > ul > li > button.submenu-btn:hover {
   color: var(--active-color);
 }
 
-/* 서브메뉴 hover */
+/* 상위 메뉴 버튼 hover 시 아이콘만 같이 */
+.sidebar > ul > li > button.submenu-btn:hover i {
+  color: var(--active-color);
+}
+
+/* 하위 메뉴 항목 hover */
 .sidebar li .submenu li a:hover {
   color: var(--active-color);
 }
 
-/* 서브메뉴 열려 있을 때 상위 메뉴 강조 */
-.sidebar li .submenu.show {
-  border-left: 3px solid var(--active-color);
-}
-
-/* 화살표 아이콘도 같이 변경 */
-.sidebar li:hover i {
-  color: var(--active-color);
-}
-
-/* active(현재 페이지)에서도 같은 색 적용 */
-.sidebar li.active > button.submenu-btn {
-  color: var(--active-color);
-}
-
+/* 현재 페이지 (하위 메뉴) */
 .sidebar li .submenu li.active > a {
   color: var(--active-color);
   font-weight: bold;
