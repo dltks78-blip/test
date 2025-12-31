@@ -85,7 +85,7 @@ header h1 a {
 .sidebar li button:focus,
 .sidebar li a:focus {
     outline: none;
-    background-color: #444;
+    background-color: #303030;
 }
 
 .sidebar li button.submenu-btn {
@@ -100,7 +100,7 @@ header h1 a {
 
 /* 마우스 커서 올려놓을 시 색상 변화 */
 :root {
-  --menu-color-1: #1e0bff; /* 블루 */
+  --menu-color-1: #5a6cff; /* 블루 */
   --menu-color-2: #ffff52; /* 옐로우 */
   --menu-color-3: #66ff4f; /* 그린 */
   --menu-color-4: #d195ff; /* 퍼플 */
