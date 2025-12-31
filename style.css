@@ -100,10 +100,10 @@ header h1 a {
 
 /* 마우스 커서 올려놓을 시 색상 변화 */
 :root {
-  --menu-color-1: #0000ff; /* 블루 */
+  --menu-color-1: #add8e6; /* 블루 */
   --menu-color-2: #ffff00; /* 옐로우 */
   --menu-color-3: #00ff00; /* 그린 */
-  --menu-color-4: #800080; /* 퍼플 */
+  --menu-color-4: #d195ff; /* 퍼플 */
 }
 
 /* 1~2번째 메뉴 */
