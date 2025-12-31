@@ -10,8 +10,8 @@ header {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: #222;
-    color: #a9a9a9;
+    background-color: #a9a9a9;
+    color: #222;
 }
 
 header h1 {
@@ -85,7 +85,7 @@ header h1 a {
 .sidebar li button:focus,
 .sidebar li a:focus {
     outline: none;
-    background-color: #a9a9a9;
+    background-color: #444;
 }
 
 .sidebar li button.submenu-btn {
