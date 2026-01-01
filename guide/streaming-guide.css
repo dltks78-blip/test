@@ -61,5 +61,6 @@
   width: 100%;
   max-width: 500px;
   display: block;
-  margin-bottom: 20px; /* 이미지 사이 간격 */
+  margin-bottom: 20px;
+  margin: 0 auto 20px;/* 이미지 사이 간격 */
 }
