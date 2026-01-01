@@ -216,3 +216,68 @@ header h1 a {
   margin-bottom: 20px;
   margin: 0 auto 20px;/* 이미지 사이 간격 */
 }
+
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 200px;
+        gap: 15px;
+    }
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        margin-bottom: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card.video iframe {
+        height: 150px;
+    }
+
+    .card.video select,
+    .card.quick a.btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sidebar {
+        width: 80%;
+        left: -80%;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .card.video iframe {
+        height: 120px;
+    }
+
+    .card.quick a.btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
