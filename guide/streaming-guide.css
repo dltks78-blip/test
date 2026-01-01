@@ -1,0 +1,63 @@
+.guide-layout {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.side-menu {
+  width: 200px;
+}
+
+.main-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.has-sub {
+  position: relative;
+}
+
+.main-item {
+  display: block;
+  padding: 14px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.sub-list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 220px;
+  background: #1a1a1a;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.has-sub:hover .sub-list {
+  display: block;
+}
+
+.sub-list button {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #ddd;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sub-list button:hover {
+  background: #333;
+  color: #fff;
+}
+
+.content-area img {
+  width: 500px;
+  max-width: 100%;
+}
