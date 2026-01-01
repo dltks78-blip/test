@@ -1,3 +1,5 @@
+<script>
+
 document.addEventListener("DOMContentLoaded", () => {
 const menuBtn = document.querySelector('.menu-btn');       // 햄버거 버튼
 const sidebar = document.querySelector('.sidebar');        // 사이드바
@@ -48,7 +50,6 @@ submenuButtons.forEach(btn => {
     });
 });
 
-<script>
 const area = document.querySelector('.content-area');
 const buttons = document.querySelectorAll('.sub-list button');
 
