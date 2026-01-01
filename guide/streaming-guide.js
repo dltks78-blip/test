@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const menuBtn = document.querySelector('.menu-btn');       // 햄버거 버튼
 const sidebar = document.querySelector('.sidebar');        // 사이드바
 const submenuButtons = document.querySelectorAll('.submenu-btn'); // 서브메뉴 버튼
