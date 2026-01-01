@@ -1,3 +1,8 @@
+const menuBtn = document.querySelector('.menu-btn');       // 햄버거 버튼
+const sidebar = document.querySelector('.sidebar');        // 사이드바
+const submenuButtons = document.querySelectorAll('.submenu-btn'); // 서브메뉴 버튼
+const submenus = document.querySelectorAll('.submenu');    // 모든 서브메뉴
+
 // 0️⃣ 페이지 로드 시 모든 서브메뉴 숨기기
 submenus.forEach(sm => sm.classList.remove("show"));
 submenuButtons.forEach(btn => btn.setAttribute("aria-expanded", false));
