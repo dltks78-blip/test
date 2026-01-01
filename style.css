@@ -113,7 +113,7 @@ header h1 a {
 
 /* 공통 메뉴 색상 */
 .sidebar > ul > li {
-  --active-color: #ffff52; /* 원하는 단일 색상 */
+  --active-color: #a9a9a9; /* 원하는 단일 색상 */
 }
 
 .sidebar li a,
