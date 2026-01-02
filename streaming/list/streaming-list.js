@@ -46,4 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
           submenu.classList.toggle("show");
       });
   });
+});
 
