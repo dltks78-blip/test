@@ -284,7 +284,7 @@ header h1 a {
 }
 
 /* ================================
-   중앙 메뉴 (음원 / M/V)
+   중앙 상단 가로 메뉴 (음원 / M/V)
 ================================ */
 .center-menu {
   width: 100%;
@@ -297,96 +297,87 @@ header h1 a {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: center;
+  display: flex;              /* 🔥 가로 정렬 */
+  gap: 40px;
 }
 
-/* 상위 메뉴 아이템 */
+/* 상위 메뉴 */
 .center-item {
   position: relative;
-  margin-bottom: 15px;
 }
 
 /* 상위 메뉴 버튼 */
 .center-item > button {
-  width: 200px;
-  padding: 14px 0;
+  padding: 14px 30px;
   font-size: 18px;
   font-weight: bold;
-  background: #222;
+  background: #111;
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* hover 효과 */
 .center-item > button:hover {
   background: #a9a9a9;
   color: #000;
 }
 
 /* ================================
-   하위 메뉴
+   하위 메뉴 (아래로 + 가로 정렬)
 ================================ */
 .center-submenu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  position: absolute;
+  top: 100%;                  /* 🔽 아래로 펼침 */
+  left: 50%;
+  transform: translateX(-50%);
   display: none;
+  list-style: none;
+  padding: 10px 16px;
+  margin: 0;
+  background: #1a1a1a;
+  display: flex;              /* 🔥 가로 정렬 */
+  gap: 12px;
+  white-space: nowrap;
+  z-index: 100;
 }
 
-/* 마우스 올리면 아래로 펼쳐짐 */
+/* hover 시 표시 */
 .center-item:hover .center-submenu {
-  display: block;
+  display: flex;
 }
 
-/* 하위 메뉴 아이템 */
+/* 하위 메뉴 버튼 */
 .center-submenu li a {
-  display: block;
-  padding: 12px 0;
+  padding: 10px 18px;
   background: #333;
   color: #ddd;
   text-decoration: none;
   font-size: 15px;
+  border-radius: 4px;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* 하위 메뉴 hover */
 .center-submenu li a:hover {
   background: #555;
   color: #fff;
 }
 
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .center-item > button {
-    width: 160px;
-    font-size: 16px;
-  }
-}
-
 /* ================================
-   콘텐츠 영역 중앙 정렬
+   모바일 대응
 ================================ */
-.content-area {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;   /* 위에서부터 쌓기 */
-  padding: 20px;
-}
+@media (max-width: 768px) {
+  .center-menu > ul {
+    gap: 20px;
+  }
 
-/* 이미지 래퍼 */
-.image-wrapper {
-  width: 100%;
-  max-width: 900px;          /* 너무 커지지 않게 제한 */
-}
+  .center-item > button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
 
-/* 가이드 이미지 */
-.content-area img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 30px;
-  object-fit: contain;       /* 비율 유지하면서 꽉 차게 */
+  .center-submenu {
+    flex-wrap: wrap;          /* 모바일에서 줄바꿈 */
+    justify-content: center;
+  }
 }
