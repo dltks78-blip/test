@@ -364,3 +364,29 @@ header h1 a {
     font-size: 16px;
   }
 }
+
+/* ================================
+   콘텐츠 영역 중앙 정렬
+================================ */
+.content-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* 위에서부터 쌓기 */
+  padding: 20px;
+}
+
+/* 이미지 래퍼 */
+.image-wrapper {
+  width: 100%;
+  max-width: 900px;          /* 너무 커지지 않게 제한 */
+}
+
+/* 가이드 이미지 */
+.content-area img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+  object-fit: contain;       /* 비율 유지하면서 꽉 차게 */
+}
