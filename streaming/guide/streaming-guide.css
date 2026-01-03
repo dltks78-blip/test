@@ -465,3 +465,104 @@ header h1 a {
   padding: 20px;
   overflow-x: hidden;
 }
+
+/* ================================
+   이미지 크게 표시 (헤더 침범 방지)
+================================ */
+
+header {
+  height: 60px;
+}
+
+.content-area {
+  padding: 20px;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.content-area img {
+  max-width: 95vw;
+  max-height: calc(100vh - 80px); /* 헤더 제외 */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 20px auto;
+}
+
+/* ================================
+   음원 / M·V 상단 메뉴 (중앙 정렬)
+================================ */
+
+.side-menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.main-list {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 상위 메뉴 - 글자형 버튼 */
+.main-item {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+/* hover 효과 */
+.main-item:hover {
+  color: #a9a9a9;
+}
+/* ================================
+   하위 메뉴 (줄바꿈 허용)
+================================ */
+
+.sub-list {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-wrap: wrap;           /* 🔥 줄바꿈 */
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 0;
+  background: #1a1a1a;
+  list-style: none;
+  max-width: 90vw;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* hover 시 표시 */
+.has-sub:hover .sub-list {
+  display: flex;
+}
+
+/* 하위 메뉴 버튼 */
+.sub-list button {
+  padding: 10px 16px;
+  background: #333;
+  border: none;
+  color: #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sub-list button:hover {
+  background: #555;
+  color: #fff;
+}
+
