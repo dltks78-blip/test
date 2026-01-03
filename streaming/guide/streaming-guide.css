@@ -210,14 +210,6 @@ header h1 a {
   color: #fff;
 }
 
-.content-area img {
-  width: 100%;
-  max-width: 500px;
-  display: block;
-  margin-bottom: 20px;
-  margin: 0 auto 20px;/* 이미지 사이 간격 */
-}
-
 @media (max-width: 1024px) {
     .main-content {
         margin-left: 200px;
