@@ -282,3 +282,85 @@ header h1 a {
         font-size: 0.9rem;
     }
 }
+
+/* ================================
+   중앙 메뉴 (음원 / M/V)
+================================ */
+.center-menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.center-menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* 상위 메뉴 아이템 */
+.center-item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* 상위 메뉴 버튼 */
+.center-item > button {
+  width: 200px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: bold;
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* hover 효과 */
+.center-item > button:hover {
+  background: #a9a9a9;
+  color: #000;
+}
+
+/* ================================
+   하위 메뉴
+================================ */
+.center-submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+/* 마우스 올리면 아래로 펼쳐짐 */
+.center-item:hover .center-submenu {
+  display: block;
+}
+
+/* 하위 메뉴 아이템 */
+.center-submenu li a {
+  display: block;
+  padding: 12px 0;
+  background: #333;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* 하위 메뉴 hover */
+.center-submenu li a:hover {
+  background: #555;
+  color: #fff;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .center-item > button {
+    width: 160px;
+    font-size: 16px;
+  }
+}
