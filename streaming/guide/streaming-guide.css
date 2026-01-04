@@ -29,61 +29,8 @@ header h1 a {
 }
 
 /* ================================
-   사이드바
+   상위 메뉴 (글자형)
 ================================ */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -240px;
-    width: 220px;
-    height: 100%;
-    background-color: #414141;
-    color: #fff;
-    overflow-y: auto;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar.active { left: 0; }
-
-.sidebar ul { list-style: none; padding: 0; margin: 0; }
-
-.sidebar li a,
-.sidebar li button {
-    display: block;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    transition: color 0.25s ease, background-color 0.25s ease;
-    background: none;       /* 버튼 배경 제거 */
-    box-shadow: none;       /* 버튼 그림자 제거 */
-}
-
-/* ================================
-   햄버거 버튼
-================================ */
-.menu-btn {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* ================================
-   가이드 레이아웃
-================================ */
-.guide-layout {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-}
-
 .side-menu {
     width: 100%;
     display: flex;
@@ -91,9 +38,6 @@ header h1 a {
     margin-top: 40px;
 }
 
-/* ================================
-   상위 메뉴 (글자형)
-================================ */
 .main-list {
     display: flex;
     justify-content: center;
@@ -114,10 +58,85 @@ header h1 a {
     cursor: pointer;
     padding: 0;
     transition: color 0.25s ease;
-    box-shadow: none;       /* 버튼 그림자 제거 */
 }
 
 .main-item:hover,
 .main-item.active { color: #a9a9a9; }
 
-/* ===*
+/* ================================
+   하위 메뉴 박스
+================================ */
+.sub-list {
+    position: absolute;
+    top: 100%;                /* 상위 메뉴 바로 아래 */
+    left: 50%;                /* 화면 중앙 기준 */
+    transform: translateX(-50%);
+    display: none;             /* 기본은 숨김 */
+    flex-wrap: wrap;           /* 줄바꿈 가능 */
+    padding: 12px 16px;
+    margin: 0;
+    background: #fff;          /* 흰색 박스 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    max-width: 90vw;           /* 화면 너비 제한 */
+    min-width: 200px;          /* 너무 작아지지 않도록 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+/* hover 시 표시 */
+.has-sub:hover .sub-list {
+    display: flex;
+    flex-direction: column;    /* 세로 나열 */
+}
+
+/* 하위 메뉴 아이템 */
+.sub-list button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+    text-align: left;          /* 글자 왼쪽 정렬 */
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+/* hover 시 글자색 변경 */
+.sub-list button:hover { color: #a9a9a9; }
+
+/* ================================
+   이미지 영역
+================================ */
+.content-area {
+    padding: 20px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.content-area img {
+    max-width: 95vw;
+    max-height: calc(100vh - 80px); /* 헤더 제외 */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+    pointer-events: none; /* 드래그 확대 방지 */
+}
+
+/* hover 시 확대 */
+.content-area img:hover {
+    transform: scale(1.05);
+    pointer-events: auto; /* hover 시만 확대 */
+}
+
+/* ================================
+   반응형
+================================ */
+@media (max-width: 1024px) {
+    .sub-list { max-width: 85vw; }
+}
+
+@media (max
