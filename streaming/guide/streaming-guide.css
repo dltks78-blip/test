@@ -96,6 +96,15 @@ header h1 a {
     font-weight: bold;
 }
 
+/* 햄버거 버튼 ☰ */
+.menu-btn {
+    all: unset;           /* 기본 버튼 스타일 제거 */
+    font-size: 1.5rem;    /* 크기 */
+    color: #fff;          /* 글자색 */
+    cursor: pointer;      /* 클릭 가능 느낌만 */
+    user-select: none;    /* 드래그 시 선택 방지 */
+}
+
 /* =========================
    메인 메뉴 (음원 / M/V)
 ========================= */
