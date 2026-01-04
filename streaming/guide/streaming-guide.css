@@ -1,6 +1,4 @@
-/* ================================
-   기본 스타일
-================================ */
+/* 기본 스타일 */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -8,13 +6,13 @@ body {
     background-color: #f5f5f5;
 }
 
+/* 헤더 */
 header {
     display: flex;
     align-items: center;
     padding: 10px 20px;
     background-color: #a9a9a9;
     color: #222;
-    height: 50px;
 }
 
 header h1 {
@@ -27,22 +25,17 @@ header h1 a {
     text-decoration: none;
 }
 
-/* ================================
-   햄버거 버튼
-================================ */
+/* 햄버거 버튼 */
 .menu-btn {
     font-size: 1.5rem;
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
-    padding: 0;
-    line-height: 1;
+    user-select: none;
 }
 
-/* ================================
-   사이드바
-================================ */
+/* 사이드바 */
 .sidebar {
     position: fixed;
     top: 0;
@@ -58,6 +51,15 @@ header h1 a {
 
 .sidebar.active {
     left: 0;
+}
+
+.submenu {
+    display: none;
+    padding-left: 15px;
+}
+
+.submenu.show {
+    display: block;
 }
 
 .sidebar ul {
@@ -79,163 +81,109 @@ header h1 a {
     cursor: pointer;
 }
 
-.sidebar li button:focus,
-.sidebar li a:focus {
-    outline: none;
+.sidebar li button.submenu-btn:hover,
+.sidebar li a:hover {
     background-color: #2b2b2b;
 }
 
-/* 서브메뉴 */
-.submenu {
-    display: none;
-    padding-left: 15px;
-}
-
-.submenu.show {
-    display: block;
-}
-
-/* ================================
-   가이드 레이아웃
-================================ */
-.guide-layout {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-}
-
+/* ===========================
+   메인 메뉴 (음원 / M/V)
+=========================== */
 .side-menu {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin-top: 40px;
 }
 
+.music-info {
+    width: 90%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.music-info h2 {
+    margin: 0 0 2px 0;
+}
+
+.music-info .date,
+.music-info .desc {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
 .main-list {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
-/* 상위 메뉴 버튼 (글자 버튼 느낌 없음) */
 .main-item {
     background: none;
     border: none;
     font-size: 22px;
     font-weight: bold;
     color: #111;
-    cursor: default;
+    cursor: pointer;
     padding: 8px 0;
-    transition: color 0.25s ease;
 }
 
-.main-item:hover {
-    color: #a9a9a9;
-}
-
-/* ================================
-   하위 메뉴 (가로 정렬 + 줄바꿈)
-================================ */
+/* 하위목록 바 */
 .sub-list {
     display: none;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
-    padding: 12px 16px;
-    margin: 0 auto;
-    background: #fff; /* 흰색 배경 */
+    padding: 10px;
+    margin: 0;
     list-style: none;
-    max-width: 90vw;
-    justify-content: center; /* 중앙정렬 */
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    background: #fff;
+    max-width: 90%;
+    text-align: left;
+    border-radius: 6px;
 }
 
-.has-sub:hover .sub-list {
-    display: flex;
+.sub-list li {
+    margin: 0;
 }
 
 .sub-list button {
-    padding: 10px 16px;
     background: none;
     border: none;
     color: #111;
     font-size: 14px;
-    cursor: default;
+    cursor: pointer;
+    padding: 6px 12px;
     border-radius: 4px;
-    text-align: left;
-    transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 .sub-list button:hover {
     color: #a9a9a9;
-    background: none;
 }
 
-/* ================================
-   콘텐츠 영역
-================================ */
+/* 하위목록 표시 */
+.has-sub:hover > .sub-list,
+.has-sub .sub-list.active {
+    display: flex;
+}
+
+/* 콘텐츠 영역 */
 .content-area {
+    flex: 1;
     padding: 20px;
     text-align: center;
     overflow-x: hidden;
 }
 
-.content-area img {
-    max-width: 95vw;          /* 화면 너비에 맞춤 */
-    max-height: calc(100vh - 80px); /* 헤더 제외 */
-    width: auto;               /* 기본 크기 유지 */
-    height: auto;              /* 기본 크기 유지 */
+.image-wrapper img {
+    max-width: 95vw;
+    max-height: calc(100vh - 100px);
+    width: auto;
+    height: auto;
     object-fit: contain;
-    margin: 20px auto;
-    touch-action: auto;        /* 핀치줌 허용 */
-    user-select: none;         /* 드래그로 선택 막기 */
-}
-
-/* 이미지 래퍼 (중앙정렬 유지용) */
-.image-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ================================
-   미디어 쿼리
-================================ */
-@media (max-width: 1024px) {
-    .guide-layout {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .sidebar {
-        width: 200px;
-        left: -200px;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-    }
-    .menu-btn {
-        margin-bottom: 10px;
-    }
-    .guide-layout {
-        gap: 15px;
-    }
-    .sub-list {
-        max-width: 95vw;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.2rem;
-    }
+    pointer-events: none; /* 스크롤/드래그에 영향 없음 */
 }
