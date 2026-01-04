@@ -79,3 +79,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// 5️⃣ 페이지 로드 시 첫 번째 하위목록 버튼 이미지 표시
+if(buttons.length > 0){
+    const firstBtn = buttons[0];
+    const wrapper = document.createElement('div');
+    wrapper.className = 'image-wrapper';
+
+    if(firstBtn.dataset.images){
+        const files = firstBtn.dataset.images.split(',');
+        files.forEach(file => {
+            const img = document.createElement('img');
+            img.src = file.trim();
+            img.alt = '가이드 이미지';
+            wrapper.appendChild(img);
+        });
+    }
+
+    if(firstBtn.dataset.image){
+        const img = document.createElement('img');
+        img.src = firstBtn.dataset.image;
+        img.alt = '가이드 이미지';
+        wrapper.appendChild(img);
+    }
+
+    area.appendChild(wrapper);
+}
