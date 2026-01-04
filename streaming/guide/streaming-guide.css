@@ -221,3 +221,10 @@ header h1 a {
     max-width: 95vw;
   }
 }
+
+/* 불필요한 확대 방지*/
+.content-area img {
+  touch-action: pan-y pinch-zoom;
+  -webkit-user-drag: none;
+  user-select: none;
+}
