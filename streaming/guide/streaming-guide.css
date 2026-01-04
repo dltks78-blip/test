@@ -184,14 +184,14 @@ header h1 a {
 }
 
 .content-area img {
-    max-width: 95vw;
-    max-height: calc(100vh - 80px);
-    width: auto;
-    height: auto;
+    max-width: 95vw;          /* 화면 너비에 맞춤 */
+    max-height: calc(100vh - 80px); /* 헤더 제외 */
+    width: auto;               /* 기본 크기 유지 */
+    height: auto;              /* 기본 크기 유지 */
     object-fit: contain;
     margin: 20px auto;
-    user-select: none;       /* 드래그로 선택 방지 */
-    pointer-events: none;    /* 드래그 확대 방지 */
+    touch-action: auto;        /* 핀치줌 허용 */
+    user-select: none;         /* 드래그로 선택 막기 */
 }
 
 /* 이미지 래퍼 (중앙정렬 유지용) */
