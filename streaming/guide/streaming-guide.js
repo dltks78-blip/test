@@ -67,4 +67,28 @@ document.addEventListener("DOMContentLoaded", () => {
       area.appendChild(wrapper);
     });
   });
+
+  const header = document.querySelector('header');
+  const menuBar = document.querySelector('.menu-bar');
+
+  const headerHeight = header.offsetHeight;
+  const menuStartY = menuBar.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY >= menuStartY - headerHeight) {
+      // 헤더에 닿으면 멈춤
+      menuBar.style.position = 'fixed';
+      menuBar.style.top = `${headerHeight}px`;
+      menuBar.style.left = '0';
+      menuBar.style.width = '100%';
+      menuBar.style.zIndex = '900';
+    } else {
+      // 원래 위치로 복귀
+      menuBar.style.position = 'relative';
+      menuBar.style.top = '0';
+    }
+  });
+
 });
