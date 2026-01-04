@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Fandom Site</title>
-<link rel="stylesheet" href="streaming-guide.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fandom Site</title>
+    <link rel="stylesheet" href="streaming-guide.css">
 </head>
 <body>
 
@@ -24,14 +24,12 @@
                 <li><a href="../oneclick/streaming-oneclick.html">스트리밍 원클릭</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">다운로드</button>
             <ul class="submenu">
                 <li><a href="../../download/guide/download-guide.html">가이드</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">투표</button>
             <ul class="submenu">
@@ -40,14 +38,12 @@
                 <li><a href="../../vote/radio/radio-oneclick.html">라디오 원클릭</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">차트</button>
             <ul class="submenu">
                 <li><a href="../../chart/chart.html">음원차트</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">기부∙모금</button>
             <ul class="submenu">
@@ -55,7 +51,6 @@
                 <li><a href="../../donation/donation/donation.html">총공 모금</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">모집</button>
             <ul class="submenu">
@@ -63,35 +58,31 @@
                 <li><a href="../../recruitment/helper/helper.html">헬퍼</a></li>
             </ul>
         </li>
-
         <li class="has-submenu">
             <button type="button" class="submenu-btn" aria-expanded="false">안내</button>
             <ul class="submenu">
                 <li><a href="../../notice/album-group-order.html">앨범 공동 구매</a></li>
             </ul>
         </li>
-
-        <!-- 링크만 있는 메뉴 -->
         <li class="submenu-btn">
             <a href="../../fan-chant/fan-chant.html">응원법</a>
         </li>
     </ul>
 </nav>
 
-<!-- 콘텐츠 전체 래퍼 -->
-<div class="content-wrapper">
+<div class="guide-layout">
 
-    <!-- 소제목 / 작성일 / 설명 -->
-    <div class="content-info">
-        <h2>소제목</h2>
-        <p class="upload-date">2026년 01월</p>
-        <p class="description">간단한 설명을 여기에 적습니다.</p>
-    </div>
-
-    <!-- 음원 / M/V 메뉴바 -->
+    <!-- 왼쪽: 메뉴 -->
     <nav class="side-menu">
         <ul class="main-list">
+
+            <!-- 음원 메뉴 -->
             <li class="has-sub">
+                <div class="music-info">
+                    <h2>소제목 예시</h2>
+                    <p class="date">2026년 01월</p>
+                    <p class="desc">간단한 설명 예시</p>
+                </div>
                 <button class="main-item">음원</button>
                 <ul class="sub-list">
                     <li><button data-image="images/melon-streaming.jpg">Melon</button></li>
@@ -105,18 +96,27 @@
                 </ul>
             </li>
 
+            <!-- M/V 메뉴 -->
             <li class="has-sub">
+                <div class="music-info">
+                    <h2>소제목 예시</h2>
+                    <p class="date">2026년 01월</p>
+                    <p class="desc">간단한 설명 예시</p>
+                </div>
                 <button class="main-item">M/V</button>
                 <ul class="sub-list">
                     <li><button data-images="images/youtube-streaming01.jpg,images/youtube-streaming02.jpg">YouTube</button></li>
                 </ul>
             </li>
+
         </ul>
     </nav>
 
-    <!-- 이미지 콘텐츠 -->
+    <!-- 오른쪽: 콘텐츠 -->
     <section class="content-area" id="contentArea">
-        <!-- JS가 이미지 삽입 -->
+        <div class="image-wrapper">
+            <img src="images/melon-streaming.jpg" alt="기본 이미지">
+        </div>
     </section>
 
 </div>
