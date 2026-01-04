@@ -96,6 +96,61 @@ header h1 a {
     padding-left: 30px;
 }
 
+/* 응원법 메뉴 기본 스타일 */
+.sidebar li.submenu-btn a {
+    display: block;
+    color: #fff;           /* 기본 글씨색 */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.25s ease, background-color 0.25s ease;
+    background-color: transparent; /* 기본 배경은 투명 */
+}
+
+/* hover 시 글씨색만 바뀌게 */
+.sidebar li.submenu-btn a:hover {
+    color: var(--active-color); /* 글씨색만 변경 */
+}
+
+/* 클릭/활성화 상태일 때 배경색 변경 */
+.sidebar li.submenu-btn a.active {
+    background-color: #333;   /* 클릭 후 배경색 */
+}
+
+
+
+/* 공통 메뉴 색상 */
+.sidebar > ul > li {
+  --active-color: #a9a9a9; /* 원하는 단일 색상 */
+}
+
+.sidebar li a,
+.sidebar li button,
+.sidebar li i {
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+/* 상위 메뉴 버튼에 마우스를 직접 올렸을 때만 */
+.sidebar > ul > li > button.submenu-btn:hover {
+  color: var(--active-color);
+}
+
+/* 상위 메뉴 버튼 hover 시 아이콘만 같이 */
+.sidebar > ul > li > button.submenu-btn:hover i {
+  color: var(--active-color);
+}
+
+/* 하위 메뉴 항목 hover */
+.sidebar li .submenu li a:hover {
+  color: var(--active-color);
+}
+
+/* 현재 페이지 (하위 메뉴) */
+.sidebar li .submenu li.active > a {
+  color: var(--active-color);
+  font-weight: bold;
+}
+
 /* ===========================
    메인 메뉴 (음원 / M/V)
 =========================== */
