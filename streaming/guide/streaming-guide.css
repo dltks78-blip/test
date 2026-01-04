@@ -1,258 +1,287 @@
-/* =================================
+/* ================================
    기본 스타일
-================================= */
+================================ */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  height: 60px;
-  background-color: #a9a9a9;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #a9a9a9;
+    color: #222;
+    height: 60px; /* 이미지 확대 제한 기준 */
 }
 
 header h1 {
-  margin-left: 10px;
-  font-size: 1.5rem;
+    margin-left: 10px;
+    font-size: 1.5rem;
 }
 
 header h1 a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
-/* =================================
-   햄버거 메뉴
-================================= */
-.menu-btn {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* =================================
+/* ================================
    사이드바
-================================= */
+================================ */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -240px;
-  width: 220px;
-  height: 100%;
-  background-color: #414141;
-  color: #fff;
-  overflow-y: auto;
-  transition: left 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: -240px; 
+    width: 220px;
+    height: 100%;
+    background-color: #414141;
+    color: #fff;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1000;
 }
 
 .sidebar.active {
-  left: 0;
+    left: 0;
 }
 
 .sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar li a,
 .sidebar li button {
-  display: block;
-  width: 100%;
-  padding: 10px 20px;
-  background: none;
-  border: none;
-  color: #fff;
-  text-align: left;
-  cursor: pointer;
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar li button:focus,
+.sidebar li a:focus {
+    outline: none;
+    background-color: #2b2b2b;
 }
 
 .sidebar li button.submenu-btn {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.submenu {
-  display: none;
-  padding-left: 15px;
-}
-
-.submenu.show {
-  display: block;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .sidebar li .submenu li a {
-  font-size: 14px;
-  padding-left: 30px;
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+.sidebar li.submenu-btn a {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.25s ease, background-color 0.25s ease;
+    background-color: transparent;
+}
+
+.sidebar li.submenu-btn a:hover {
+    color: var(--active-color);
+}
+
+.sidebar li.submenu-btn a.active {
+    background-color: #333;
 }
 
 .sidebar > ul > li {
   --active-color: #a9a9a9;
 }
 
-.sidebar li a:hover,
-.sidebar li button:hover {
+.sidebar li a,
+.sidebar li button,
+.sidebar li i {
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.sidebar > ul > li > button.submenu-btn:hover {
   color: var(--active-color);
 }
 
-/* =================================
-   가이드 레이아웃
-================================= */
-.guide-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.sidebar li .submenu li a:hover {
+  color: var(--active-color);
 }
 
-/* =================================
-   상단 메뉴 (음원 / M·V)
-================================= */
-.side-menu {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.main-list {
-  display: flex;
-  gap: 60px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.has-sub {
-  position: relative;
-}
-
-/* 글자형 상위 메뉴 */
-.main-item {
-  background: none;
-  border: none;
-  font-size: 22px;
+.sidebar li .submenu li.active > a {
+  color: var(--active-color);
   font-weight: bold;
-  color: #111;
-  cursor: pointer;
-  padding: 8px 0;
-}
-
-.main-item:hover {
-  color: #a9a9a9;
-}
-
-/* =================================
-   하위 메뉴 (줄바꿈 허용)
-================================= */
-.sub-list {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 12px 16px;
-  background: #1a1a1a;
-  list-style: none;
-  max-width: 90vw;
-  justify-content: center;
-  z-index: 100;
-}
-
-.has-sub:hover .sub-list {
-  display: flex;
-}
-
-.sub-list button {
-  padding: 10px 16px;
-  background: #333;
-  border: none;
-  color: #ddd;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.sub-list button:hover {
-  background: #555;
-  color: #fff;
-}
-
-/* =================================
-   콘텐츠 영역 / 이미지
-================================= */
-.content-area {
-  padding: 20px;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.content-area img {
-  max-width: 95vw;
-  max-height: calc(100vh - 80px);
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  margin: 20px auto;
-}
-
-/* =================================
-   반응형
-================================= */
-@media (max-width: 768px) {
-  .main-item {
-    font-size: 18px;
-  }
-
-  .main-list {
-    gap: 40px;
-  }
-
-  .sub-list {
-    max-width: 95vw;
-  }
-}
-
-/* 불필요한 확대 방지*/
-.content-area img {
-  touch-action: pan-y pinch-zoom;
-  -webkit-user-drag: none;
-  user-select: none;
 }
 
 /* ================================
-   하위 메뉴 → 글자형 디자인
+   가이드 레이아웃
 ================================ */
+.guide-layout {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
 
-/* 하위 메뉴 컨테이너 */
+.side-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.main-list {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 상위 메뉴 - 글자형 버튼 */
+.main-item {
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.main-item:hover {
+    color: #a9a9a9;
+}
+
+/* ================================
+   하위 메뉴 (가로, 중앙정렬, 줄바꿈)
+================================ */
 .sub-list {
-  background: #fff;          /* 흰색 배경 */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: flex;
+    flex-wrap: wrap;             /* 줄바꿈 허용 */
+    justify-content: center;     /* 중앙 정렬 */
+    gap: 12px;                   /* 버튼 간격 */
+    
+    padding: 12px 16px;
+    margin: 0;
+    background: #fff;            /* 흰색 배경 */
+    list-style: none;
+    max-width: 95vw;             /* 화면 폭 제한 */
+    box-sizing: border-box;
+    z-index: 100;
+    overflow: hidden;            /* 가로 스크롤 방지 */
 }
 
-/* 하위 메뉴 버튼 (글자만) */
+/* 하위 메뉴 버튼 */
 .sub-list button {
-  background: none;
-  border: none;
-  padding: 6px 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #222;
-  cursor: pointer;
-  border-radius: 0;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+    cursor: pointer;
+    border-radius: 0;
+    white-space: nowrap;         /* 글자 줄바꿈 방지 */
+    transition: color 0.25s ease;
 }
 
-/* hover 시 글자색만 변경 */
 .sub-list button:hover {
-  background: none;
-  color: #a9a9a9;
+    color: #a9a9a9;
+}
+
+/* ================================
+   이미지 스타일
+================================ */
+.content-area {
+    padding: 20px;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.content-area img {
+    max-width: 95vw;
+    max-height: calc(100vh - 80px); /* 헤더 제외 */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+}
+
+/* 이미지 확대 효과 (hover 등 JS 적용 가능) */
+.content-area img.zoomable:hover {
+    transform: scale(1.05); /* 원하는 확대율 */
+}
+
+/* 드래그/스크롤로 인한 확대 방지 */
+.content-area img {
+    touch-action: pan-y; /* 모바일 드래그로 확대 방지 */
+}
+
+/* ================================
+   반응형
+================================ */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+        left: -200px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        margin-bottom: 10px;
+    }
+
+    .main-list {
+        gap: 20px;
+    }
+
+    .sub-list {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+
+    .sub-list button {
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .sub-list button {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .content-area img {
+        max-height: calc(100vh - 70px);
+    }
 }
