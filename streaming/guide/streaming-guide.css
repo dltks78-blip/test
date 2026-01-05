@@ -6,7 +6,7 @@ body {
     background-color: #f5f5f5;
     font-size: 16px;
     line-height: 1.7;
-    color: #111
+    color: #111;
     height: 100%;          /* 화면 높이에 맞춤 */
     overflow-x: hidden; /* 가로 스크롤 제거 */
     overflow-y: auto;      /* 세로 스크롤 하나만 */
@@ -258,7 +258,7 @@ header h1 a {
   transform: translateX(-50%);
   width: 28%;
   height: 2px;
-  background-color: #a9a9a9(0,0,0,0.35); 
+  background-color: #a9a9a9; 
   border-radius: 2px;
 }
 
