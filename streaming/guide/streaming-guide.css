@@ -1,9 +1,25 @@
 /* 기본 스타일 */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Pretendard", Arial;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #111
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  font-weight: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 :root {
@@ -46,6 +62,16 @@ header h1 a {
     overflow-y: auto;
     transition: left 0.3s ease;
     z-index: 1000;
+}
+
+.submenu-btn,
+.submenu-btn a {
+  font-weight: 600;
+}
+
+.submenu a {
+  font-weight: 500;
+  font-size: 14px;
 }
 
 /* sidebar 열기 */
@@ -280,6 +306,7 @@ body {
 
 .music-info h2 {
     margin: 0 0 5px 0;
+    font-weight: 700;
 }
 
 .music-info .date,
@@ -287,6 +314,7 @@ body {
     margin: 0px 0px 20px 0;
     font-size: 14px;
     color: #333;
+    font-weight: 500;
 }
 
 /* 하위 메뉴 버튼 */
@@ -302,6 +330,14 @@ body {
     cursor: pointer;
     padding: 6px 12px;
     border-radius: 4px;
+}
+
+.main-item {
+  font-weight: 600;
+}
+
+.sub-list button {
+  font-weight: 500;
 }
 
 /* 콘텐츠 영역 */
