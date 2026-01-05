@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submenus = document.querySelectorAll('.submenu');
   const area = document.querySelector('.content-area');
   const buttons = document.querySelectorAll('.sub-list button');
+  const mainItems = document.querySelectorAll('.menu-bar .main-item');
 
   // 초기 서브메뉴 숨김
   submenus.forEach(sm => sm.classList.remove("show"));
@@ -69,8 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 메인 메뉴 버튼 클릭 → 강조선
-const mainItems = document.querySelectorAll('.menu-bar .main-item');
-
 mainItems.forEach(item => {
   item.addEventListener('click', () => {
     // 모든 버튼에서 active 제거
