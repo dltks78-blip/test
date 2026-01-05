@@ -7,6 +7,10 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #111
+    height: 100%;          /* 화면 높이에 맞춤 */
+    overflow-x: hidden; /* 가로 스크롤 제거 */
+    overflow-y: auto;      /* 세로 스크롤 하나만 */
+    box-sizing: border-box; /* 패딩 포함 계산 */
 }
 
 a {
@@ -187,15 +191,6 @@ header h1 a {
   font-weight: bold;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;          /* 화면 높이에 맞춤 */
-    overflow-x: hidden; /* 가로 스크롤 제거 */
-    overflow-y: auto;      /* 세로 스크롤 하나만 */
-    box-sizing: border-box; /* 패딩 포함 계산 */
-}
-
 /* 전체 컨테이너 기준으로 왼쪽 공간 확보 */
 .guide-layout {
     padding-left: 70px;   /* 사이트 이름 시작 위치에 맞춤 */
@@ -237,7 +232,6 @@ body {
     text-align: center;      /* 텍스트 가운데 */
     padding: 8px 20px;       /* 좌우 패딩으로 클릭 영역 확보 */
     font-size: 22px;
-    font-weight: bold;
     color: #111;
     cursor: pointer;
     background: none;
