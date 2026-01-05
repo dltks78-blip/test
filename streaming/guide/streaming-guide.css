@@ -250,6 +250,7 @@ header h1 a {
   transform: translateY(-50%);
 }
 
+/* 강조선 */
 .menu-bar .main-item::after {
   content: "";
   position: absolute;
@@ -263,16 +264,12 @@ header h1 a {
 }
 
 .menu-bar .main-item.active {
-  background-color: rgba(0,0,0,0.08);
+  background-color: rgba(0,0,0,0.15);
 }
 
 .menu-bar .main-item.active::after {
   width: 45%;
-  background-color: #a9a9a9;
-}
-
-.menu-bar .main-item:hover {
-    background-color: #f0f0f0; /* 호버 시 배경 */
+  background-color: #414141;
 }
 
 .menu-bar .has-sub {
@@ -282,40 +279,38 @@ header h1 a {
 /* 하위 메뉴 (sub-list) */
 .menu-bar .sub-list {
     position: absolute;
-    top: calc(100% - 4px);  /* 버튼과 바로 붙도록 */                 /* 버튼 바로 아래 */
+    top: 100%;  /* 메뉴 버튼 바로 아래 */                 /* 버튼 바로 아래 */
     left: 50%;                      /* 버튼 시작점 기준 */
     transform: translateX(-50%); /* 정확히 가로 중앙 */
     display: none;                /* 기본 숨김 */
     flex-direction: row;          /* 가로로 나열 */
-    gap: 10px;                    /* 하위 버튼 간격 */
-    padding: 8px;
-    background: #fff;
+    gap: 16px;                    /* 하위 버튼 간격 */
+    padding: 10px 0;
+    background-color: #f5f5f5;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    z-index: 100;
+    z-index: 1000;
     white-space: nowrap;          /* 줄바꿈 방지 */
     pointer-events: auto;           /* 마우스 이벤트 허용 */
     list-style: none; /* 점 제거 */
     margin: 0;
-}
-
-/* 마우스 올리면 표시 */
-.menu-bar .has-sub:hover > .sub-list {
-    display: flex;       
+    margin-top: 11px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 /* 하위 메뉴 버튼 */
 .menu-bar .sub-list button {
     background: none;
     border: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #111;
     padding: 6px 12px;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
-.menu-bar .sub-list button:hover {
-    background-color: #f0f0f0;
+.menu-bar .sub-list.show{
+    display: flex;
 }
 
 /* ===========================
@@ -326,8 +321,8 @@ header h1 a {
 .music-info {
     width: 90%;
     text-align: left;
-    margin-top: 100px; /*헤더와 소제목 사이 공간*/
-    margin-bottom: 20px;
+    margin-top: 80px; /*헤더와 소제목 사이 공간*/
+    margin-bottom: 24px;
 }
 
 .music-info h2 {
@@ -335,10 +330,16 @@ header h1 a {
     font-weight: 700;
 }
 
-.music-info .date,
-.music-info .desc {
+.music-info .date {
     margin: 0px 0px 20px 0;
     font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.music-info .desc {
+    margin: 0px 0px 20px 0;
+    font-size: 18px;
     color: #333;
     font-weight: 500;
 }
