@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+// 클릭 후 모든 하위 메뉴 닫기 → 여기서 처리
+    function closeAllSubMenus(){
+  const allSubLists = document.querySelectorAll(".menu-bar .sub-list");
+  const allMainItems = document.querySelectorAll(".menu-bar .main-item");
+
+  allSubLists.forEach(list => list.classList.remove("show"));
+  allMainItems.forEach(btn => btn.classList.remove("active"));
+}
+
   const menuBtn = document.querySelector('.menu-btn');
   const sidebar = document.querySelector('.sidebar');
   const submenuButtons = document.querySelectorAll('.submenu-btn');
@@ -65,8 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       area.appendChild(wrapper);
+
+      // 클릭 후 모든 하위 메뉴 닫기 → 함수 호출만
+      closeAllSubMenus();
     });
-  });
+    
+});
+
 
   const header = document.querySelector('header');
   const menuBar = document.querySelector('.menu-bar');
@@ -107,3 +122,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+document.addEventListener("click", function (e) {
+  const allSubLists = document.querySelectorAll(".menu-bar .sub-list");
+  const allMainItems = document.querySelectorAll(".menu-bar .main-item");
+  const clickedMain = e.target.closest(".menu-bar .has-sub");
+
+  // 메뉴 영역 밖 클릭 → 전부 닫기
+  if (!e.target.closest(".menu-bar")) {
+    allSubLists.forEach(list => list.classList.remove("show"));
+    allMainItems.forEach(btn => btn.classList.remove("active"));
+    return;
+  }
+
+  // 메인 메뉴 클릭한 경우
+  if (clickedMain && e.target.classList.contains("main-item")) {
+    const subList = clickedMain.querySelector(".sub-list");
+    const mainBtn = clickedMain.querySelector(".main-item");
+
+    const isOpen = subList.classList.contains("show");
+
+    // 전부 닫기
+    allSubLists.forEach(list => list.classList.remove("show"));
+    allMainItems.forEach(btn => btn.classList.remove("active"));
+
+    // 다시 열기 (이미 열려있던 거면 닫힘)
+    if (!isOpen) {
+      subList.classList.add("show");
+      mainBtn.classList.add("active");
+    }
+  }
+});
+
