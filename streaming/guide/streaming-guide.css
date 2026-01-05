@@ -232,8 +232,43 @@ header h1 a {
     color: #111;
     cursor: pointer;
     background: none;
-   border: none; 
+    border: none; 
     transition: background 0.2s, color 0.2s;
+    border-radius: 999px;           /* 네모 아닌 부드러운 형태 */
+    background-color: rgba(0,0,0,0.04); /* 아주 연한 면 */  
+}
+
+.submenu-btn::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-bar .main-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  width: 28%;
+  height: 2px;
+  background-color: #a9a9a9(0,0,0,0.35); 
+  border-radius: 2px;
+}
+
+.menu-bar .main-item.active {
+  background-color: rgba(0,0,0,0.08);
+}
+
+.menu-bar .main-item.active::after {
+  width: 45%;
+  background-color: #a9a9a9;
 }
 
 .menu-bar .main-item:hover {
