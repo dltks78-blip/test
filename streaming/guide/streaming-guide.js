@@ -68,6 +68,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // 메인 메뉴 버튼 클릭 → 강조선
+const mainItems = document.querySelectorAll('.menu-bar .main-item');
+
+mainItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // 모든 버튼에서 active 제거
+    mainItems.forEach(i => i.classList.remove('active'));
+
+    // 클릭한 버튼에 active 추가
+    item.classList.add('active');
+  });
+});
+
   const header = document.querySelector('header');
   const menuBar = document.querySelector('.menu-bar');
 
