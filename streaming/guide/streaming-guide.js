@@ -132,10 +132,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-    document.addEventListener("click", () => {
-  document.querySelectorAll('.menu-bar .sub-list')
-    .forEach(list => list.classList.remove('show'));
-  document.querySelectorAll('.menu-bar .main-item')
-    .forEach(btn => btn.classList.remove('active'));
-});
