@@ -413,3 +413,40 @@ header h1 a {
     max-width: 100%;
     height: auto; /* 비율 유지 */
 }
+
+/* ===========================
+   맨 위로 버튼
+=========================== */
+#scrollTopBtn {
+  position: fixed;
+  right: 40px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #414141; /* 사이트 톤에 맞춤 */
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+
+  cursor: pointer;
+  display: none;              /* 처음엔 숨김 */
+  z-index: 9999;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) { 
+    #scrollTopBtn { 
+    right: 16px; 
+    bottom: 80px; /* 하단 UI 겹침 방지 */ 
+ } 
+}
