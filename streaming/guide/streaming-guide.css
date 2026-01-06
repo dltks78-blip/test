@@ -231,6 +231,10 @@ header h1 a {
         transform 0.25s ease;
 
     border-bottom: 1px solid #ddd;
+
+    position: relative;
+    z-index: 800;
+    pointer-events: none;
 }
 
 /* 열렸을 때 */
@@ -238,6 +242,7 @@ header h1 a {
     max-height: 140px; /* 하위 메뉴 한 줄 기준 */
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
 /* 하위 목록: 무조건 가로 */
@@ -450,3 +455,4 @@ header h1 a {
     bottom: 80px; /* 하단 UI 겹침 방지 */ 
  } 
 }
+
