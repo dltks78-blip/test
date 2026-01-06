@@ -112,45 +112,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainItems = document.querySelectorAll('.menu-bar .main-item');
 
   mainItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // 모든 버튼에서 active 제거
-      mainItems.forEach(i => i.classList.remove('active'));
+     item.addEventListener('click', (e) => {
+    e.stopPropagation(); // ⭐ 중요
 
-      // 클릭한 버튼에 active 추가
-      item.classList.add('active');
-    });
-  });
+    const parent = item.closest('.has-sub');
+    const subList = parent.querySelector('.sub-list');
 
-});
-
-document.addEventListener("click", function (e) {
-  const allSubLists = document.querySelectorAll(".menu-bar .sub-list");
-  const allMainItems = document.querySelectorAll(".menu-bar .main-item");
-  const clickedMain = e.target.closest(".menu-bar .has-sub");
-
-  // 메뉴 영역 밖 클릭 → 전부 닫기
-  if (!e.target.closest(".menu-bar")) {
-    allSubLists.forEach(list => list.classList.remove("show"));
-    allMainItems.forEach(btn => btn.classList.remove("active"));
-    return;
-  }
-
-  // 메인 메뉴 클릭한 경우
-  if (clickedMain && e.target.classList.contains("main-item")) {
-    const subList = clickedMain.querySelector(".sub-list");
-    const mainBtn = clickedMain.querySelector(".main-item");
-
-    const isOpen = subList.classList.contains("show");
+    const isOpen = subList.classList.contains('show');
 
     // 전부 닫기
-    allSubLists.forEach(list => list.classList.remove("show"));
-    allMainItems.forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll('.menu-bar .sub-list')
+      .forEach(list => list.classList.remove('show'));
+    mainItems.forEach(i => i.classList.remove('active'));
 
-    // 다시 열기 (이미 열려있던 거면 닫힘)
+    // 다시 열기
     if (!isOpen) {
-      subList.classList.add("show");
-      mainBtn.classList.add("active");
+      subList.classList.add('show');
+      item.classList.add('active');
     }
-  }
+  });
 });
 
+    document.addEventListener("click", () => {
+  document.querySelectorAll('.menu-bar .sub-list')
+    .forEach(list => list.classList.remove('show'));
+  document.querySelectorAll('.menu-bar .main-item')
+    .forEach(btn => btn.classList.remove('active'));
+});
