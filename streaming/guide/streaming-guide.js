@@ -1,13 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-// 클릭 후 모든 하위 메뉴 닫기 → 여기서 처리
+  // 클릭 후 모든 하위 메뉴 닫기
   function closeAllSubMenus(){
-  const allSubLists = document.querySelectorAll(".menu-bar .sub-list");
-  const allMainItems = document.querySelectorAll(".menu-bar .main-item");
-
-  allSubLists.forEach(list => list.classList.remove("show"));
-  allMainItems.forEach(btn => btn.classList.remove("active"));
-}
+    document.querySelectorAll(".menu-bar .sub-list").forEach(list => list.classList.remove("show"));
+    document.querySelectorAll(".menu-bar .main-item").forEach(btn => btn.classList.remove("active"));
+  }
 
   const menuBtn = document.querySelector('.menu-btn');
   const sidebar = document.querySelector('.sidebar');
@@ -23,18 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 햄버거 버튼
   menuBtn.addEventListener("click", (e) => {
     sidebar.classList.toggle("active");
-    e.stopPropagation();
-  });
-
-  // 외부 클릭 → 사이드바 닫기
-  document.addEventListener("click", (e) => {
-    if (
-        sidebar &&
-        !sidebar.contains(e.target) && 
-        !menuBtn.contains(e.target)
-    ) {
-      sidebar.classList.remove("active");
-    }
+    e.stopPropagation(); // 클릭 이벤트 전파 방지
   });
 
   // 서브메뉴 버튼 토글
@@ -62,8 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.className = 'image-wrapper';
 
       if (btn.dataset.images) {
-        const files = btn.dataset.images.split(',');
-        files.forEach(file => {
+        btn.dataset.images.split(',').forEach(file => {
           const img = document.createElement('img');
           img.src = file.trim();
           img.alt = '가이드 이미지';
@@ -80,70 +64,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
       area.appendChild(wrapper);
 
-      // 클릭 후 모든 하위 메뉴 닫기 → 함수 호출만
-      closeAllSubMenus();
+      closeAllSubMenus(); // 클릭 후 모든 메뉴 닫기
     });
-    
-});
+  });
 
+  // 메인 메뉴 버튼 클릭 → 강조선 & 서브메뉴 토글
+  const mainItems = document.querySelectorAll('.menu-bar .main-item');
+  mainItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation(); // 중요: 상위 document 클릭 이벤트 막기
+      const parent = item.closest('.has-sub');
+      const subList = parent.querySelector('.sub-list');
+      const isOpen = subList.classList.contains('show');
 
+      closeAllSubMenus(); // 전부 닫기
+      if (!isOpen) {      // 클릭한 메뉴만 열기
+        subList.classList.add('show');
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // 외부 클릭 → 사이드바, 메뉴 모두 닫기
+  document.addEventListener("click", (e) => {
+    // 메뉴 영역 또는 햄버거 버튼 클릭 시 무시
+    if (e.target.closest(".menu-bar") || e.target.closest(".menu-btn") || e.target.closest('.submenu-btn')) return;
+
+    // 사이드바 닫기
+    if (sidebar) sidebar.classList.remove("active");
+
+    // 모든 서브메뉴 닫기
+    closeAllSubMenus();
+  });
+
+  // 스크롤 시 메뉴바 고정
   const header = document.querySelector('header');
   const menuBar = document.querySelector('.menu-bar');
-
   const headerHeight = header.offsetHeight;
   const menuStartY = menuBar.offsetTop;
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-
     if (scrollY >= menuStartY - headerHeight) {
-      // 헤더에 닿으면 멈춤
       menuBar.style.position = 'fixed';
       menuBar.style.top = `${headerHeight}px`;
       menuBar.style.left = '0';
       menuBar.style.width = '100%';
       menuBar.style.zIndex = '900';
     } else {
-      // 원래 위치로 복귀
       menuBar.style.position = 'relative';
       menuBar.style.top = '0';
     }
   });
-
- // ========================
-  // 메인 메뉴 버튼 클릭 → 강조선
-  // ========================
-  const mainItems = document.querySelectorAll('.menu-bar .main-item');
-
-  mainItems.forEach(item => {
-     item.addEventListener('click', (e) => {
-    e.stopPropagation(); // ⭐ 중요
-
-    const parent = item.closest('.has-sub');
-    const subList = parent.querySelector('.sub-list');
-
-    const isOpen = subList.classList.contains('show');
-
-    // 전부 닫기
-    document.querySelectorAll('.menu-bar .sub-list')
-      .forEach(list => list.classList.remove('show'));
-    mainItems.forEach(i => i.classList.remove('active'));
-
-    // 다시 열기
-    if (!isOpen) {
-      subList.classList.add('show');
-      item.classList.add('active');
-    }
-  });
 });
-
-// 메뉴 바깥 클릭 → 상단 메뉴 닫기
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".menu-bar")) {
-    document.querySelectorAll('.menu-bar .sub-list')
-      .forEach(list => list.classList.remove('show'));
-    document.querySelectorAll('.menu-bar .main-item')
-      .forEach(btn => btn.classList.remove('active'));
-  }
-});
-
