@@ -119,10 +119,13 @@
 
         <!-- 메뉴 바 -->
     <div class="menu-bar">
-        <!-- 음원 -->
-         <div class="has-sub">
-                <button class="main-item">음원</button>
-                <ul class="sub-list">
+        <button class="main-item" data-target="music">음원</button>
+        <button class="main-item" data-target="mv">뮤직비디오</button>
+    </div>
+    
+        <!-- 🔽 음원 패널 (사이드바 ↓ 버전) -->
+        <div class="dropdown-panel" id="music">
+            <ul class="sub-list">
                     <li><button data-image="images/melon-streaming.jpg">멜론</button></li>
                     <li><button data-image="images/genie-streaming.jpg">지니</button></li>
                     <li><button data-image="images/bugs-streaming.jpg">벅스</button></li>
@@ -134,9 +137,8 @@
                 </ul>
         </div>
 
-            <!-- M/V 메뉴 -->
-            <div class="has-sub">
-                <button class="main-item">뮤직비디오</button>
+           <!-- 🔽 M/V 패널 -->
+           <div class="dropdown-panel" id="mv">
                 <ul class="sub-list">
                     <li><button data-images="images/youtube-streaming01.jpg,images/youtube-streaming02.jpg">유튜브</button></li>
                 </ul>
