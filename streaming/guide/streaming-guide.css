@@ -279,13 +279,14 @@ header h1 a {
 /* 하위 메뉴 (sub-list) */
 .menu-bar .sub-list {
     position: absolute;
-    top: 100%;  /* 메뉴 버튼 바로 아래 */                 /* 버튼 바로 아래 */
-    left: 50%;                      /* 버튼 시작점 기준 */
-    transform: translateX(-50%); /* 정확히 가로 중앙 */
+    top: 100%;  /* 메뉴 버튼 바로 아래 */ 
+    left: 0%;
+    width: 100% /* 메뉴바 전체 길이 */
     display: none;                /* 기본 숨김 */
+    justify-content: center;  /* 버튼들은 가운데 정렬 */
     flex-direction: row;          /* 가로로 나열 */
     gap: 16px;                    /* 하위 버튼 간격 */
-    padding: 10px 0;
+    padding: 12px 0;
     background-color: #f5f5f5;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     z-index: 1000;
