@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 클릭 후 모든 하위 메뉴 닫기
   function closeAllSubMenus(){
-    document.querySelectorAll(".menu-bar .sub-list").forEach(list => list.classList.remove("show"));
-    document.querySelectorAll(".menu-bar .main-item").forEach(btn => btn.classList.remove("active"));
-  }
+  document.querySelectorAll(".dropdown-panel")
+    .forEach(panel => panel.classList.remove("active"));
+  document.querySelectorAll(".menu-bar .main-item")
+    .forEach(btn => btn.classList.remove("active"));
+}
 
   const menuBtn = document.querySelector('.menu-btn');
   const sidebar = document.querySelector('.sidebar');
@@ -70,25 +72,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 메인 메뉴 버튼 클릭 → 강조선 & 서브메뉴 토글
   const mainItems = document.querySelectorAll('.menu-bar .main-item');
-  mainItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.stopPropagation(); // 중요: 상위 document 클릭 이벤트 막기
-      const parent = item.closest('.has-sub');
-      const subList = parent.querySelector('.sub-list');
-      const isOpen = subList.classList.contains('show');
+ mainItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
 
-      closeAllSubMenus(); // 전부 닫기
-      if (!isOpen) {      // 클릭한 메뉴만 열기
-        subList.classList.add('show');
-        item.classList.add('active');
-      }
-    });
+    const targetId = item.dataset.target;
+    const panel = document.getElementById(targetId);
+    const isOpen = panel.classList.contains('active');
+
+    closeAllSubMenus();
+
+    if (!isOpen) {
+      panel.classList.add('active');
+      item.classList.add('active');
+    }
   });
+});
 
   // 외부 클릭 → 사이드바, 메뉴 모두 닫기
   document.addEventListener("click", (e) => {
     // 메뉴 영역 또는 햄버거 버튼 클릭 시 무시
-    if (e.target.closest(".menu-bar") || e.target.closest(".menu-btn") || e.target.closest('.submenu-btn')) return;
+    if (
+  e.target.closest(".menu-bar") ||
+  e.target.closest(".dropdown-panel") ||
+  e.target.closest(".menu-btn") ||
+  e.target.closest(".submenu-btn")
+) return;
 
     // 사이드바 닫기
     if (sidebar) sidebar.classList.remove("active");
