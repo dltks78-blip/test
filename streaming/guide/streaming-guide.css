@@ -373,10 +373,6 @@ header h1 a {
   font-weight: 600;
 }
 
-.sub-list button {
-  font-weight: 500;
-}
-
 /* 콘텐츠 영역 */
 .content-area {
     display: flex;               /* flex로 중앙 정렬 */
