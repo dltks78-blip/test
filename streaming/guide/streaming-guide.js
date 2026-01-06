@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 // 클릭 후 모든 하위 메뉴 닫기 → 여기서 처리
-    function closeAllSubMenus(){
+  function closeAllSubMenus(){
   const allSubLists = document.querySelectorAll(".menu-bar .sub-list");
   const allMainItems = document.querySelectorAll(".menu-bar .main-item");
 
@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 외부 클릭 → 사이드바 닫기
   document.addEventListener("click", (e) => {
-    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+    if (
+        sidebar &&
+        !sidebar.contains(e.target) && 
+        !menuBtn.contains(e.target)
+    ) {
       sidebar.classList.remove("active");
     }
   });
@@ -132,3 +136,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// 메뉴 바깥 클릭 → 상단 메뉴 닫기
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".menu-bar")) {
+    document.querySelectorAll('.menu-bar .sub-list')
+      .forEach(list => list.classList.remove('show'));
+    document.querySelectorAll('.menu-bar .main-item')
+      .forEach(btn => btn.classList.remove('active'));
+  }
+});
+
