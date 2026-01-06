@@ -113,18 +113,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuStartY = menuBar.offsetTop;
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY >= menuStartY - headerHeight) {
-      menuBar.style.position = 'fixed';
-      menuBar.style.top = `${headerHeight}px`;
-      menuBar.style.left = '0';
-      menuBar.style.width = '100%';
-      menuBar.style.zIndex = '900';
-    } else {
-      menuBar.style.position = 'relative';
-      menuBar.style.top = '0';
-    }
-  });
+  const scrollY = window.scrollY;
+
+  if (scrollY >= menuStartY - headerHeight) {
+    menuBar.style.position = 'fixed';
+    menuBar.style.top = `${headerHeight}px`;
+    menuBar.style.left = '0';
+    menuBar.style.width = '100%';
+    menuBar.style.zIndex = '900';
+
+    document.querySelectorAll('.dropdown-panel.active').forEach(panel => {
+      panel.style.position = 'fixed';
+      panel.style.top = `${headerHeight + menuBar.offsetHeight}px`;
+      panel.style.left = '0';
+      panel.style.width = '100%';
+      panel.style.zIndex = '850';
+    });
+
+  } else {
+    menuBar.style.position = 'relative';
+    menuBar.style.top = '0';
+
+    document.querySelectorAll('.dropdown-panel').forEach(panel => {
+      panel.style.position = 'relative';
+      panel.style.top = '0';
+    });
+  }
+});
+
+
 
   /* ===========================
    맨 위로 버튼
