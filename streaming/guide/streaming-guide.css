@@ -274,6 +274,7 @@ header h1 a {
 
 .menu-bar .main-item {
     display: flex;           /* flex로 변경 */
+    position: relative;
     justify-content: center; /* 가로 중앙 */
     align-items: center;     /* 세로 중앙 */
     text-align: center;      /* 텍스트 가운데 */
