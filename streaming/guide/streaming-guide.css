@@ -281,7 +281,7 @@ header h1 a {
     position: absolute;
     top: 100%;  /* 메뉴 버튼 바로 아래 */ 
     left: 0%;
-    width: 100% /* 메뉴바 전체 길이 */
+    width: 100%; /* 메뉴바 전체 길이 */
     display: none;                /* 기본 숨김 */
     justify-content: center;  /* 버튼들은 가운데 정렬 */
     flex-direction: row;          /* 가로로 나열 */
