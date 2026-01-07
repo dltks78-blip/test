@@ -485,3 +485,11 @@ header h1 a {
     -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
   }
 }
+
+/* 모바일 기준 글씨 자동 조절 */
+@media (max-width: 768px) {
+  html {
+    font-size: clamp(12px, 4vw, 16px);
+  }
+}
+
