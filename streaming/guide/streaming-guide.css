@@ -1,4 +1,5 @@
 
+
 /* 기본 스타일 */
 body {
     font-family: "Pretendard", Arial;
@@ -504,4 +505,39 @@ header h1 a {
     font-size: clamp(10px, 3.5vw, 14px);
     padding: clamp(4px, 1.5vw, 8px) clamp(6px, 3vw, 14px);
   }
+}
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  .guide-layout {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .guide-layout {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+   .music-info {
+    margin-top: 40px; /*헤더와 소제목 사이 공간*/
+}
+}
+
+.music-info h2 {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+}
+
+.music-info .date {
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+}
+
+.music-info .desc {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
 }
