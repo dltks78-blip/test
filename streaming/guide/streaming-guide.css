@@ -257,6 +257,9 @@ header h1 a {
     margin: 0;
     padding: 14px 0;
 
+    overflow-x: auto;        /* 좌우 스크롤 허용 */
+    -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+    scroll-behavior: smooth; /* 부드럽게 스크롤 */
     white-space: nowrap;      /* 줄바꿈 방지 */
 }
 
@@ -267,10 +270,19 @@ header h1 a {
     border-radius: 999px;
     background-color: rgba(0,0,0,0.04);
     transition: background 0.2s, color 0.2s;
+
+    min-width: 80px;   /* 클릭/터치 영역 확보 */
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
 }
 
 .dropdown-panel .sub-list button:hover {
     background-color: rgba(0,0,0,0.12);
+}
+
+.dropdown-panel .sub-list::-webkit-scrollbar {
+    display: none;           /* 스크롤바 숨기기 (선택 사항) */
 }
 
 .menu-spacer {
@@ -455,4 +467,5 @@ header h1 a {
     bottom: 80px; /* 하단 UI 겹침 방지 */ 
  } 
 }
+
 
